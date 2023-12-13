@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2bsqvw3hfxhg"]
+
+[ext_resource type="Script" path="res://audio.gd" id="1_8ka0l"]
+[ext_resource type="Script" path="res://DisplayVerticalGraph.gd" id="2_2eagd"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_ri30w"]
+mix_rate = 48000.0
+buffer_length = 0.1
+
+[node name="Audio_test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="audio" type="Node" parent="."]
+script = ExtResource("1_8ka0l")
+
+[node name="Input" type="AudioStreamPlayer" parent="audio"]
+bus = &"Record"
+
+[node name="Output" type="AudioStreamPlayer" parent="audio"]
+stream = SubResource("AudioStreamGenerator_ri30w")
+autoplay = true
+
+[node name="DisplayAudioGraph" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 56.0
+offset_right = -812.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+alignment = 1
+script = ExtResource("2_2eagd")
+
+[node name="RecordContainer" type="VBoxContainer" parent="DisplayAudioGraph"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="DisplayAudioGraph/RecordContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Record"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="DisplayAudioGraph/RecordContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+fill_mode = 3
+
+[node name="MasterContainer" type="VBoxContainer" parent="DisplayAudioGraph"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="DisplayAudioGraph/MasterContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Master"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="DisplayAudioGraph/MasterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.001
+fill_mode = 3

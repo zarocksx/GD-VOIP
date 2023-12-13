@@ -1,0 +1,7 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1702404240
+audio.gd::GDScript::-1::1702416640::0::1::::<>Node<>::
+audio_test.tscn::PackedScene::9057547823890331752::1702417250::0::1::::<><>::res://audio.gd<>res://DisplayVerticalGraph.gd
+default_bus_layout.tres::AudioBusLayout::564741648641516272::1702412418::0::1::::<><>::
+DisplayVerticalGraph.gd::GDScript::-1::1702408850::0::1::::<>HBoxContainer<>::
+icon.svg::CompressedTexture2D::1211787482266494877::1702404250::1702404280::1::::<><>::
